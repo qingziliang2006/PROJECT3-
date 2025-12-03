@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>City of Strays — Chapter 3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&family=Playfair+Display:wght@500;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/stray-story.css">
+</head>
+<body class="chapter-3">
+<header class="site-header">
+  <div class="nav">
+    <div class="nav-left">
+      <span class="nav-dot"></span>
+      <span>City of Strays · Archive</span>
+    </div>
+    <div class="nav-links">
+      <a href="stray-title.html">Title</a>
+      <a href="stray-1.html">Ch.1</a>
+      <a href="stray-2.html">Ch.2</a>
+      <a href="stray-3.html" aria-current="page">Ch.3</a>
+      <a href="stray-end.html">End</a>
+    </div>
+  </div>
+</header>
+
+<main class="shell">
+  <section class="scene">
+    <div class="scene-inner">
+
+      <div class="scene-label">III · rewriting the city</div>
+      <h1 class="scene-title">If the law listened to Luna</h1>
+      <p class="scene-sub">
+        The city is not broken. It is unfinished.  
+        And tonight, you decide how it will be rewritten.
+      </p>
+
+      <div class="story-text">
+        <p class="story-line">
+          In One Health, cities are organisms — networks of human, animal, and environmental wellbeing.
+        </p>
+        <p class="story-line">
+          When one part collapses, the others bend under the weight.
+          But solutions never belong to a single actor. They belong to everyone.
+        </p>
+      </div>
+
+      <div class="oh-grid">
+        <article class="oh-card">
+          <h3>Humans</h3>
+          <p>
+            Health systems, transport safety, mental wellbeing —
+            all intertwined with how a city treats (or neglects) its animals.
+          </p>
+        </article>
+        <article class="oh-card">
+          <h3>Animals</h3>
+          <p>
+            Stray dogs and cats face hunger, traffic, parasites, disease —
+            consequences of human abandonment and lack of regulation.
+          </p>
+        </article>
+        <article class="oh-card">
+          <h3>Environment</h3>
+          <p>
+            Waste exposure, disrupted food webs, contaminated water systems —
+            cities shape the ecosystems that stray animals navigate.
+          </p>
+        </article>
+      </div>
+
+      <div class="law-block">
+        <div class="law-question">
+          Choose what the new Stray Animal Law must include:
+        </div>
+
+        <label class="law-option">
+          <input type="checkbox" class="law-check" value="A national spay/neuter program, free or low-cost, targeting high-risk districts.">
+          <span>Free/low-cost spay & neuter across the city.</span>
+        </label>
+
+        <label class="law-option">
+          <input type="checkbox" class="law-check" value="Strict penalties for abandonment and neglect, including fines and mandatory education.">
+          <span>Penalties for abandonment and neglect.</span>
+        </label>
+
+        <label class="law-option">
+          <input type="checkbox" class="law-check" value="Mandatory animal ID and citywide registration to track population flows.">
+          <span>Citywide animal ID and registration.</span>
+        </label>
+
+        <label class="law-option">
+          <input type="checkbox" class="law-check" value="Partnerships between government, NGOs, and local neighborhoods to ensure long-term interventions.">
+          <span>Government–NGO partnership plans.</span>
+        </label>
+
+        <label class="law-option">
+          <input type="checkbox" class="law-check" value="Funding through a small tax on commercial breeders and pet stores to support shelters and public vet clinics.">
+          <span>Breeder/pet-store tax to fund shelters.</span>
+        </label>
+
+        <button class="law-btn" onclick="generateLaw()">
+          Generate your law →
+        </button>
+
+        <div id="lawSummary" class="law-summary" style="display:none;">
+          <h4>Your Draft</h4>
+          <p id="lawText"></p>
+        </div>
+      </div>
+
+      <div class="choice-block" style="margin-top:18px;">
+        <div class="choice-title">
+          When you are ready, step out of the room.
+        </div>
+        <div class="choice-hint">
+          Outside, Luna — or a dog like her — is crossing another street.
+        </div>
+        <div class="choice-row">
+          <a class="choice-btn is-link" href="stray-end.html">
+            Walk into the ending →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  © 2025 Zoe Leung · City of Strays · Stray Animal Law Story.
+</footer>
+
+<script>
+function generateLaw(){
+  const checks = document.querySelectorAll('.law-check:checked');
+  const summary = document.getElementById('lawSummary');
+  const text = document.getElementById('lawText');
+
+  if(checks.length === 0){
+    text.innerText = "A city cannot change without a decision. Choose at least one clause.";
+  } else {
+    let arr = [];
+    checks.forEach(c => arr.push("• " + c.value));
+    text.innerText = arr.join("\n");
+  }
+  summary.style.display = "block";
+}
+</script>
+</body>
+</html>
